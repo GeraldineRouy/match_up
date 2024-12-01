@@ -9,6 +9,7 @@ export default {
   methods: {
     addPlayer() {
       if (this.name.trim()) {
+        console.log("New player name sent by PlayerInput :", this.name);
         this.$emit("add-player", this.name.trim());
         this.name = "";
       }
