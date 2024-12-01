@@ -1,8 +1,10 @@
 <script>
 
+
 import PlayerInput from "@/components/PlayerInput.vue";
 import PlayersList from "@/components/PlayersList.vue";
 import StartTournamentButton from "@/components/StartTournamentButton.vue";
+import { generateFirstRound } from "@/utils/tournament";
 
 export default {
   components: {
@@ -12,18 +14,31 @@ export default {
   },
   data() {
     return {
-      players: []
+      players: [],
+      firstRound: []
     };
   },
   methods: {
     addPlayer(name) {
+      console.log("Adding player by Home :", name);
       this.players.push(name);
     },
-    startTournament() {
-      console.log("Tournament started with following players :", this.players);
+    handleStartTournament() {
+      console.log("Players :", this.players);
+      if (this.players.length < 2) {
+        alert("Please add at least 2 players to start a new tournament.");
+        return;
+      }
+
+      this.firstRound = generateFirstRound(this.players);
+      console.log("First Round created :", this.firstRound);
+      this.$router.push({
+        name: "TournamentTree",
+        query: { firstRound: JSON.stringify(this.firstRound) }
+      })
     }
   }
-}
+};
 </script>
 
 <template>
@@ -36,7 +51,7 @@ export default {
 
       <PlayerInput @add-player="addPlayer" />
       <PlayersList :players="players" />
-      <StartTournamentButton @start-tournament="startTournament" />
+      <StartTournamentButton @start-tournament="handleStartTournament" />
 
     </div>
 

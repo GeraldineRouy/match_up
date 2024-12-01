@@ -1,11 +1,7 @@
 <script>
 
-import Home from "@/views/Home.vue";
-
 export default {
-  components: {
-    Home
-  }
+  name: "App"
 };
 
 </script>
@@ -13,7 +9,9 @@ export default {
 <template>
 
 <div id="app" class="bg-gray-50 flex items-center justify-center">
-  <Home/>
+
+  <router-view/>
+
 </div>
 </template>
 

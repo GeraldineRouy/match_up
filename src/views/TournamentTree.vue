@@ -1,9 +1,21 @@
 <script>
+import Home from "@/views/Home.vue";
+
 export default {
-  props: {
-    tournament: {
-      type: Array,
-      required: true
+  computed: {
+    Home() {
+      return Home
+    }
+  },
+  data() {
+    return {
+      firstRound: JSON.parse(this.$route.query.firstRound || "[]"),
+    };
+  },
+  methods: {
+    getColorClass(index) {
+      const colors = ["bg-mumauve", "bg-muelectric"];
+      return colors[index];
     }
   }
 };
@@ -14,24 +26,26 @@ export default {
 
   <div class="p-4">
 
-    <h1 class="text-2xl font-bold text-primary mb-4">Tournament tree</h1>
+    <h1 class="text-2xl font-bold text-primary mb-4">Tournament tree : First Round</h1>
 
-    <div v-if="tournament.length">
+    <div v-if="firstRound.length">
 
-      <div v-for="(round, index) in tournament)" :key="index" class="mb-8">
+      <div v-for="(matches, matchIndex) in firstRound" :key="matchIndex" class="mb-8">
 
-        <h2 class="text-lg font-semibold text-secondary">Round {{ index + 1 }}</h2>
-        <ul class="space-y-2">
-          <li
-            v-for="(match, matchIndex) in round)"
-            :key="matchIndex"
-            class="bg-gray-100 px-4 py-2 rounded shadow"
-            >
-            {{ match[0] }} vs {{ match[1] }}
-          </li>
-        </ul>
+        <h2 class="text-lg font-semibold text-secondary">Match {{ matchIndex+ 1 }}</h2>
+
+        <div class="space-y-2">
+          <p
+              v-for="(player, index) in matches"
+             :class="getColorClass(index)"
+             class="space-y-2 px-2 text-white"
+          >
+            {{ player }}
+          </p>
+        </div>
 
       </div>
+    </div>
 
     <div v-else>
 
@@ -39,9 +53,10 @@ export default {
 
     </div>
 
-  </div>
+    <RouterLink :to="{ name: 'Home' }" class="text-secondary">Return Home</RouterLink>
 
   </div>
+
 
 </template>
 
