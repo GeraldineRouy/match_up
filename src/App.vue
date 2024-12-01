@@ -12,7 +12,7 @@ export default {
 
 <template>
 
-<div id="app">
+<div id="app" class="bg-gray-50 flex items-center justify-center">
   <Home/>
 </div>
 </template>

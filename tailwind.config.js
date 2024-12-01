@@ -7,19 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        mupink : '#f72585',
+        error : '#f72585',
         mumauve : '#b5179e',
-        mubergine : '#7209b7',
+        secondary : '#7209b7',
         muviolet : '#560bad',
         muviolet2 : '#480ca8',
         muindigo : '#3a0ca3',
-        mumarine : '#3f37c9',
+        warning : '#3f37c9',
         muelectric : '#4361ee',
-        mucyan : '#4895ef',
-        musky : '#4cc9f0'
+        primary : '#4895ef',
+        success : '#4cc9f0'
       }
     },
   },
-  plugins: [],
+  plugins: [
+      require('@tailwindcss/forms')],
 }
 
