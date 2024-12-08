@@ -3,9 +3,9 @@ export function generateFirstRound(players) {
 
     const shuffledPlayers = shuffle(players);
 
-    let firstRound = createMatches(shuffledPlayers);
+    let matchesForNextRound = createMatches(shuffledPlayers);
 
-    return firstRound;
+    return matchesForNextRound;
 }
 
 function shuffle(array) {

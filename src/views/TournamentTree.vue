@@ -1,15 +1,11 @@
 <script>
-import Home from "@/views/Home.vue";
+
 
 export default {
-  computed: {
-    Home() {
-      return Home
-    }
-  },
+
   data() {
     return {
-      firstRound: JSON.parse(this.$route.query.firstRound || "[]"),
+      matchesForNextRound: JSON.parse(this.$route.query.firstRound || "[]"),
     };
   },
   methods: {
@@ -28,9 +24,9 @@ export default {
 
     <h1 class="text-2xl font-bold text-primary mb-4">Tournament tree : First Round</h1>
 
-    <div v-if="firstRound.length">
+    <div v-if="matchesForNextRound.length">
 
-      <div v-for="(matches, matchIndex) in firstRound" :key="matchIndex" class="mb-8">
+      <div v-for="(matches, matchIndex) in matchesForNextRound" :key="matchIndex" class="mb-8">
 
         <h2 class="text-lg font-semibold text-secondary">Match {{ matchIndex+ 1 }}</h2>
 
