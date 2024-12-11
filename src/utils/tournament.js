@@ -8,6 +8,20 @@ export function generateFirstRound(players) {
     return matchesForNextRound;
 }
 
+export function generateNextRound(players) {
+    const shuffledPlayers = shuffle(players);
+    const matchesForNextRound = createMatches(shuffledPlayers);
+
+    // if (players.length !== matchesForNextRound.length) {
+    //     alert("Please select a winner for each match !");
+    //     return;
+    // }
+
+    console.log("Matches for next Round : ", matchesForNextRound);
+
+    this.winners = [];
+}
+
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
 }
