@@ -30,25 +30,7 @@ export default {
 
 
     },
-    // handleNextRound() {
-    //   if (this.winners.length !== this.matchesForNextRound.length) {
-    //     alert("Please select a winner for each match !");
-    //     return;
-    //   }
-    //
-    //   const nextRound = this.createMatches(this.winners);
-    //   console.log("nextRound : ", nextRound);
-    //
-    //   this.matchesForNextRound = nextRound;
-    //   this.winners = [];
-    // },
-    // createMatches(players) {
-    //   const matches = [];
-    //   for (let i = 0; i < players.length; i += 2) {
-    //     matches.push([players[i], players[i + 1] || "BYE"]);
-    //   }
-    //   return matches;
-    // },
+
     getColorClass(index) {
       const colors = ["bg-mumauve", "bg-muelectric"];
       return colors[index];
