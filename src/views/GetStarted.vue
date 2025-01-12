@@ -1,6 +1,5 @@
 <script>
 
-import {defineComponent} from "vue";
 import PlayersList from "@/components/PlayersList.vue";
 import StartTournamentButton from "@/components/StartTournamentButton.vue";
 import PlayerInput from "@/components/PlayerInput.vue";
@@ -37,9 +36,6 @@ export default {
   }
 };
 
-// defineComponent({
-//   components: {PlayerInput, StartTournamentButton, PlayersList}
-// })
 </script>
 
 <template>
@@ -48,6 +44,7 @@ export default {
   <PlayerInput @add-player="addPlayer" />
   <PlayersList :players="playersArray" />
   <StartTournamentButton @start-tournament="handleStartTournament" />
+  <RouterLink to="/first-round">Test !</RouterLink>
 
 </template>
 

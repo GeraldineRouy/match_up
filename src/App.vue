@@ -15,7 +15,7 @@ export default {
 
 <div class="bg-softyellow flex flex-col w-full">
 
-  <footer class="bg-softblue flex flex-col divide-success divide-y text-l text-secondary pt-4 pb-2">
+  <footer class="bg-softblue flex flex-col divide-success divide-y text-l text-secondary pt-4 pb-2 px-4">
     <p class="flex self-center text-mumauve">MatchUp! Play with your friends !</p>
     <div class="flex justify-around">
       <router-link to="/">Home</router-link>
@@ -29,7 +29,7 @@ export default {
 
     <h1 class="text-3xl font-bold text-primary text-center my-6">MatchUp!</h1>
 
-    <div class="bg-white p-8 rounded-lg">
+    <div class="flex flex-col w-3/5 bg-white px-12 py-6 rounded-lg">
 
     <router-view/>
 
