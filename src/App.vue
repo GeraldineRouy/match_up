@@ -1,16 +1,43 @@
 <script>
 
+import Home from "@/views/Home.vue";
+import About from "@/views/About.vue";
+
 export default {
-  name: "App"
+  components: {
+    Home
+  }
 };
 
 </script>
 
 <template>
 
-<div id="app" class="bg-gray-50 flex items-center justify-center">
+<div class="bg-softyellow flex flex-col w-full">
 
-  <router-view/>
+  <footer class="bg-softblue flex flex-col divide-success divide-y text-l text-secondary pt-4 pb-2">
+    <p class="flex self-center text-mumauve">MatchUp! Play with your friends !</p>
+    <div class="flex justify-around">
+      <router-link to="/">Home</router-link>
+      <router-link to="/about">About</router-link>
+    </div>
+  </footer>
+
+
+
+  <main class="min-h-screen flex flex-col items-center">
+
+    <h1 class="text-3xl font-bold text-primary text-center my-6">MatchUp!</h1>
+
+    <div class="bg-white p-8 rounded-lg">
+
+    <router-view/>
+
+    </div>
+
+  </main>
+
+
 
 </div>
 </template>

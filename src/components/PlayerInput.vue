@@ -27,7 +27,7 @@ export default {
     type="text"
     v-model="name"
     placeholder="Enter Name"
-    class="flex-1 border border-muindigo rounded px-4 py-2 focus:outline-none focus:border-mumauve focus:ring-2 focus:ring-mumauve text-muindigo"
+    class="flex-1 border border-muindigo rounded px-4 py-2 focus:outline-none focus:border-mumauve focus:ring-2 focus:ring-mumauve text-muindigo bg-softyellow"
     @keyup.enter="addPlayer"
     >
     <button @click="addPlayer"

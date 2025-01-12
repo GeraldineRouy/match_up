@@ -16,7 +16,10 @@ export default {
         warning : '#3f37c9',
         muelectric : '#4361ee',
         primary : '#4895ef',
-        success : '#4cc9f0'
+        success : '#4cc9f0',
+        softblue : '#e0ffff',
+        softyellow : '#fffacd',
+        sunny : '#ffd700'
       }
     },
   },
