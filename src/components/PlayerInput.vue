@@ -1,17 +1,18 @@
 <script>
 
 export default {
+  name: "PlayerInput",
   data() {
     return {
-      name: ""
+      playerName: ""
     };
   },
   methods: {
-    addPlayer() {
-      if (this.name.trim()) {
-        console.log("New player name sent by PlayerInput :", this.name);
-        this.$emit("add-player", this.name.trim());
-        this.name = "";
+    emitAddPlayer() {
+      if (this.playerName.trim()) {
+        this.$emit("addPlayer", this.playerName.trim());
+        console.log("Event emitted with player:", this.playerName);
+        this.playerName = "";
       }
     }
   }
@@ -25,12 +26,12 @@ export default {
 
     <input
     type="text"
-    v-model="name"
+    v-model="playerName"
     placeholder="Enter Name"
     class="flex-1 border border-muindigo rounded px-4 py-2 focus:outline-none focus:border-mumauve focus:ring-2 focus:ring-mumauve text-muindigo bg-softyellow"
-    @keyup.enter="addPlayer"
+    @keyup.enter="emitAddPlayer"
     >
-    <button @click="addPlayer"
+    <button @click="emitAddPlayer"
     class="bg-primary text-white px-4 py-2 rounded hover:bg-muelectric"
     >Add
     </button>

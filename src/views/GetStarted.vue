@@ -4,47 +4,58 @@ import PlayersList from "@/components/PlayersList.vue";
 import StartTournamentButton from "@/components/StartTournamentButton.vue";
 import PlayerInput from "@/components/PlayerInput.vue";
 import {generateNextRound} from "@/utils/tournament.js";
+import {useTournamentStore} from "@/store/tournament.js";
+import FirstRound from "@/views/FirstRound.vue";
 
 export default {
   name: "GetStarted",
   components: {
     PlayerInput,
     PlayersList,
-    StartTournamentButton
+    StartTournamentButton,
+    FirstRound
   },
   data() {
     return {
-      playersArray: [],
-      firstRound: {}
+      playerName: "",
+      // playersArray: [],
+      // firstRound: {}
     };
   },
-  methods: {
-    addPlayer(name) {
-      console.log("Adding player by Home :", name);
-      this.playersArray.push(name);
+  computed: {
+    tournamentStore() {
+      return useTournamentStore();
     },
-    handleStartTournament() {
-      console.log("Players :", this.playersArray);
-      if (this.playersArray.length < 2) {
-        alert("Please add at least 2 players to start a new tournament.");
-        return;
-      }
-
-      this.firstRound = generateNextRound(this.playersArray);
-      console.log("First Round created :", this.firstRound);
+    players() {
+      return this.tournamentStore.players;
     }
+  },
+  methods: {
+    addPlayer(playerName) {
+      console.log("Player received in GetStarted:", playerName);
+      this.tournamentStore.addPlayer(playerName);
+    },
+  handleStartTournament() {
+    this.tournamentStore.generateFirstRound();
+    this.$router.push({name: "FirstRound"});
   }
+}
 };
 
 </script>
 
 <template>
 
+  <div class="text-mumauve pb-4">
+    <h2>Get Started:</h2>
+    <p>Add players name and click Start Tournament button to generate First Round !</p>
+  </div>
+
+
 
   <PlayerInput @add-player="addPlayer" />
-  <PlayersList :players="playersArray" />
-  <StartTournamentButton @start-tournament="handleStartTournament" />
-  <RouterLink to="/first-round">Test !</RouterLink>
+  <PlayersList :players="players" />
+  <StartTournamentButton @click="handleStartTournament" />
 
 </template>
 

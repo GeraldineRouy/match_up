@@ -1,17 +1,22 @@
 <script>
 export default {
   name: "Match",
-  props: ['matchNumber']
-}
+  props: {
+    players: {
+      type: Array,
+      required: true
+    }
+  }
+};
 </script>
 
 <template>
 <div class="mb-4 text-secondary">
-  <h3 class="text-primary text-l font-bold">Match n°{{ matchNumber }}</h3>
+  <h3 class="text-primary text-l font-bold">Match </h3>
   <div class="ml-6">
-    <p>Player 1</p>
+    <p>{{ players[0] }}</p>
     <p>VS</p>
-    <p>Player 2</p>
+    <p>{{ players[1] || "no player found !" }}</p>
   </div>
 </div>
 </template>
